@@ -1,0 +1,1 @@
+"use strict";$(document).ready(function(){var t="";$(document).keypress(function(e){var n=event.keyCode||event.which,r=String.fromCharCode(n);13==n?(t+="\n",$("#last-letter-display").text(" ")):(t+=r,$("#last-letter-display").text(r));var a=t.split(/\S+/g).length;$("#word-count-display").text(a),e.preventDefault()})});
