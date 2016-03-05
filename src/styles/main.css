@@ -1,0 +1,10 @@
+body {
+	background-color: black;
+}
+
+.giant-letter {
+	font-family: 'Cutive Mono', 'Serif';
+	font-size: 680px;
+	text-align: center;
+	color: white;
+}
