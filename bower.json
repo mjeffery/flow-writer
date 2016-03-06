@@ -1,0 +1,29 @@
+{
+  "name": "flow-writer",
+  "description": "A fake version of the ilys app that syncs with google drive",
+  "main": "index.html",
+  "authors": [
+    "mjeffery"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "writing",
+    "productivity",
+    "google",
+    "drive"
+  ],
+  "homepage": "https://github.com/mjeffery/flow-writer",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "modernizr": "^3.3.1"
+  }
+}

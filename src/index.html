@@ -14,7 +14,24 @@
 		<!-- endbuild -->
 	</head>
 	<body>
-		<h1>It Works!</h1>
-		<div class="giant-letter">a</div>
+		<div id="word-count-display" class="word-count">0</div>
+		<div id="last-letter-display" class="giant-letter"></div>
+		<div id="authorize-prompt" style="display:none;">
+			<span>Authorize access to Drive API</span>
+			<button class="authorize-btn">Authorize</button>
+		</div>
+
+		<!-- build:js scripts/vendor.js -->
+		<!-- bower:js -->
+		<script src="/bower_components/jquery/dist/jquery.js"></script>
+		<!-- endbower -->
+		<!-- endbuild -->
+
+		<!-- build:js scripts/main.js -->
+		<script src="/scripts/app.js"></script>
+		<script src="/scripts/drive-authorize.js"></script>
+		<!-- endbuild -->
+
+		<script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
 	</body>
 </html>

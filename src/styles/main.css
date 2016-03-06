@@ -2,9 +2,17 @@ body {
 	background-color: black;
 }
 
+.word-count {
+	font-family: 'monospace';
+	font-size: 45px;
+	text-align: center;
+	color: #777;
+	display: block;
+}
+
 .giant-letter {
 	font-family: 'Cutive Mono', 'Serif';
 	font-size: 680px;
 	text-align: center;
-	color: white;
+	color: #777;
 }
