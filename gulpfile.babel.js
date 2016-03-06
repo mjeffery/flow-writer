@@ -8,7 +8,9 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 gulp.task('styles', () => {
-	return gulp.src('src/styles/*.css')
+	return gulp.src(require('main-bower-files')('**/*.css', function(err) { }) 
+	    .concat('src/styles/*.css'))
+		.pipe($.plumber())
 		.pipe($.sourcemaps.init())
 		.pipe($.autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'Firefox ESR'] }))
 		.pipe($.sourcemaps.write())

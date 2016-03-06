@@ -2,7 +2,21 @@ body {
 	background-color: black;
 }
 
+.menu {
+	float: left;
+	color: #444;
+	position: relative;
+	z-index: 1;
+}
+
+.menu ul {
+	margin-top: 0px;
+	padding-left: 15px;
+	list-style-type: none;
+}
+
 .word-count {
+	margin-top: 15px;
 	font-family: 'monospace';
 	font-size: 45px;
 	text-align: center;
@@ -10,9 +24,52 @@ body {
 	display: block;
 }
 
+.letter-container {
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+	height: 100vh;
+	position: absolute;
+	overflow: hidden;
+}
+
 .giant-letter {
 	font-family: 'Cutive Mono', 'Serif';
 	font-size: 680px;
 	text-align: center;
+	line-height: 100vh;	
 	color: #777;
+}
+
+.show-text-container {
+	background-color: white;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	z-index: 2;
+}
+
+.all-text {
+	margin: 15px;
+	font-family: 'Cutive Mono', 'Serif';
+	font-size: 32px;
+	white-space: pre-wrap;
+	color: #777;
+	overflow-y: auto;
+}
+
+.show-text-menu {
+	height: 100vh;
+	float: left;
+	padding-left: 15px;
+	padding-right: 15px;
+	color: #777;
+}
+
+.show-text-menu ul {
+	list-style-type: none;
+	padding-left: 0px;
 }

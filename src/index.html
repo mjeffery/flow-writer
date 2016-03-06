@@ -10,12 +10,39 @@
 		<link href='https://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
 
 		<!-- build:css styles/main.css -->
+			<link rel="stylesheet" href="styles/font-awesome.css">
 			<link rel="stylesheet" href="styles/main.css">
 		<!-- endbuild -->
 	</head>
 	<body>
+		<div class="menu">
+			<ul>
+				<li class="reset-btn" title="reset"><i class="fa fa-refresh fa-5x"></i></li>
+				<li class="show-text-btn" title="show text"><i class="fa fa-eye fa-5x"></i></li>
+			</ul>
+		</div>
 		<div id="word-count-display" class="word-count">0</div>
-		<div id="last-letter-display" class="giant-letter"></div>
+		<div class="letter-container">
+			<table>
+				<tr align="center">
+					<td width="45%"></td>
+					<td><div id="last-letter-display" class="giant-letter"></div></td>
+					<td width="45%"></td>
+				</tr>
+			</table>
+		</div>
+		<div class="saving-notice" style="display:none;">Saving...</div>
+
+		<div class="show-text-container" style="display:none;">
+			<div class="show-text-menu">
+				<ul>
+					<li class="reset-btn" title="reset"><i class="fa fa-refresh fa-5x"></i></li>
+					<li class="hide-text-btn" title="hide text"><i class="fa fa-eye-slash fa-5x"></i></li>
+				</ul>
+			</div>
+			<div id="all-text" class="all-text"></div>
+		</div>
+
 		<div id="authorize-prompt" style="display:none;">
 			<span>Authorize access to Drive API</span>
 			<button class="authorize-btn">Authorize</button>
@@ -31,7 +58,9 @@
 		<script src="/scripts/app.js"></script>
 		<script src="/scripts/drive-authorize.js"></script>
 		<!-- endbuild -->
-
+	
+		<!--
 		<script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+		-->
 	</body>
 </html>
