@@ -2,8 +2,41 @@ $(document).ready(function() {
 	var TEXT_KEY = 'session-text';
 	var text = localStorage.getItem(TEXT_KEY) || '';
 
+	if(text.length > 0) {
+		updateWordCount();
+		var lastLetter = text.charAt(text.length - 1);
+		if(['\n', '\t'].indexOf(lastLetter) > -1)
+			lastLetter = ' ';
+
+		$('#last-letter-display').text(lastLetter);
+	}
+
+	var save = _.debounce(function() {
+		showSaveNotice();
+		localStorage.setItem(TEXT_KEY, text);
+	}, 1000, { maxWait: 10000 });
+
+	function addLetter(char, display) {
+		text += char;
+		$('#last-letter-display').text(display || char);
+		updateWordCount();
+		save();
+	}
+
+	function updateWordCount() {
+		var wordCount = text.split(/\S+/g).length;
+		$('#word-count-display').text(wordCount);
+	}
+
 	$(document).keydown(function(e) { 
-		if((e.keyCode || e.which) == 8) e.preDefault();
+		var key = e.keyCode || e.which;
+		if(key == 8) { // handle backspace
+			e.preventDefault();
+		}
+		else if(key == 9) { // handle tab
+			addLetter('\t', ' ');
+			e.preventDefault();
+		}
 	});
 
 	$(document).keypress(function(e) {
@@ -13,17 +46,12 @@ $(document).ready(function() {
 		if(key == 8) { //supposedly this is backspace?
 			//TODO make it rain!
 		}
-		if(key == 13) { // supposedly this is enter?
-			text += '\n';
-			$('#last-letter-display').text(' ');
+		else if(key == 13) { // supposedly this is enter?
+			addLetter('\n', ' ');
 		}
 		else {
-			text += keyChar;
-			$('#last-letter-display').text(keyChar);
+			addLetter(keyChar);
 		}
-
-		var wordCount = text.split(/\S+/g).length;
-		$('#word-count-display').text(wordCount);
 
 		e.preventDefault();
 	});
@@ -35,7 +63,8 @@ $(document).ready(function() {
 			$('#all-text').text('');
 			$('#last-letter-display').text('');
 			$('#word-count-display').text(0);
-			//TODO save!
+
+			localStorage.setItem(TEXT_KEY, text);
 		}
 	});
 
@@ -46,5 +75,5 @@ $(document).ready(function() {
 
 	$('.hide-text-btn').click(function() {
 		$('.show-text-container').hide();
-	})
+	});
 });
