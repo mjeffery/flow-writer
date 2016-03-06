@@ -73,3 +73,14 @@ body {
 	list-style-type: none;
 	padding-left: 0px;
 }
+
+.saving-notice {
+	font-family: 'monospace';
+	font-size: 20px;
+	position: absolute;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	bottom: 0px;
+	right: 0px;
+	color: #777;
+}

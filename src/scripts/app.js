@@ -2,12 +2,12 @@ $(document).ready(function() {
 	var TEXT_KEY = 'session-text';
 	var text = localStorage.getItem(TEXT_KEY) || '';
 
-	$(document).keydown(function() { 
-		if((event.keyCode || event.which) == 8) event.preventDefault();
+	$(document).keydown(function(e) { 
+		if((e.keyCode || e.which) == 8) e.preDefault();
 	});
 
 	$(document).keypress(function(e) {
-		var key = event.keyCode || event.which;
+		var key = e.keyCode || e.which;
 		var keyChar = String.fromCharCode(key);
 
 		if(key == 8) { //supposedly this is backspace?
@@ -32,6 +32,9 @@ $(document).ready(function() {
 		var result = confirm('are you sure you want to delete your current text?');
 		if(result) {
 			text = '';
+			$('#all-text').text('');
+			$('#last-letter-display').text('');
+			$('#word-count-display').text(0);
 			//TODO save!
 		}
 	});
